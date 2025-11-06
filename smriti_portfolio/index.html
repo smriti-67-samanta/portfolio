@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Smriti Samanta | Full Stack Developer</title>
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💼</text></svg>" type="image/svg+xml">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>Portfolio</text></svg>" type="image/svg+xml">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Raleway:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
@@ -213,18 +213,27 @@
             flex: 1;
             text-align: center;
             position: relative;
-            
         }
 
-        .profile-img {
+        .profile-image-container {
             width: 350px;
             height: 350px;
             border-radius: 50%;
-            object-fit: cover;
             border: 5px solid var(--secondary-color);
             box-shadow: var(--shadow);
-            display: block;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, var(--light-color) 0%, var(--white) 100%);
             margin: 0 auto;
+        }
+
+        .profile-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 50%;
         }
 
         .hero h1 {
@@ -559,77 +568,29 @@
             text-align: center;
         }
 
-        /* Profile Image Styling - Fixed */
-        .profile-image-container {
-            width: 350px;
-            height: 350px;
-            border-radius: 50%;
-            border: 5px solid var(--secondary-color);
-            box-shadow: var(--shadow);
-            overflow: hidden;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: linear-gradient(135deg, var(--light-color) 0%, var(--white) 100%);
-            margin: 0 auto;
-            position: relative;
-        }
-
-        .profile-placeholder {
-            width: 100%;
-            height: 100%;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            background: linear-gradient(135deg, var(--secondary-color) 0%, var(--primary-color) 100%);
-            color: white;
-            text-align: center;
-            padding: 20px;
-        }
-
-        .profile-placeholder i {
-            font-size: 3rem;
-            margin-bottom: 15px;
-        }
-
-        .profile-image {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            border-radius: 50%;
-        }
-
         /* Responsive Design */
         @media (max-width: 992px) {
             .hero-content, .about-content {
                 flex-direction: column;
             }
-            
             .hero-text, .about-text {
                 text-align: center;
             }
-            
             .hero h2::after {
                 left: 50%;
                 transform: translateX(-50%);
             }
-            
             .hero-btns {
                 justify-content: center;
             }
-            
-            .profile-img, .about-img, .profile-image-container {
+            .profile-image-container {
                 width: 250px;
                 height: 250px;
             }
         }
 
         @media (max-width: 768px) {
-            .hamburger {
-                display: block;
-            }
-            
+            .hamburger { display: block; }
             .nav-menu {
                 position: fixed;
                 top: 80px;
@@ -642,73 +603,24 @@
                 box-shadow: var(--shadow);
                 padding: 20px 0;
             }
-            
-            .nav-menu.active {
-                right: 0;
-            }
-            
-            .nav-item {
-                margin: 15px 0;
-            }
-            
-            .hero h1 {
-                font-size: 2.5rem;
-            }
-            
-            .hero h2 {
-                font-size: 1.5rem;
-            }
-            
-            h2 {
-                font-size: 2rem;
-            }
-            
-            .projects-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .contact-info {
-                grid-template-columns: 1fr;
-                gap: 20px;
-            }
-            
-            .contact-row {
-                padding: 30px 20px;
-                min-height: 180px;
-            }
-            
-            .contact-icon {
-                font-size: 2rem;
-            }
+            .nav-menu.active { right: 0; }
+            .nav-item { margin: 15px 0; }
+            .hero h1 { font-size: 2.5rem; }
+            .hero h2 { font-size: 1.5rem; }
+            h2 { font-size: 2rem; }
+            .projects-grid { grid-template-columns: 1fr; }
+            .contact-info { grid-template-columns: 1fr; gap: 20px; }
+            .contact-row { padding: 30px 20px; min-height: 180px; }
+            .contact-icon { font-size: 2rem; }
         }
 
         @media (max-width: 576px) {
-            .hero-btns {
-                flex-direction: column;
-            }
-            
-            .profile-img, .about-img, .profile-image-container {
-                width: 200px;
-                height: 200px;
-            }
-            
-            .stats-container {
-                flex-direction: column;
-                align-items: center;
-            }
-            
-            .contact-row {
-                padding: 25px 15px;
-                min-height: 160px;
-            }
-            
-            .contact-details h3 {
-                font-size: 1.2rem;
-            }
-            
-            .contact-details p {
-                font-size: 1rem;
-            }
+            .hero-btns { flex-direction: column; }
+            .profile-image-container { width: 200px; height: 200px; }
+            .stats-container { flex-direction: column; align-items: center; }
+            .contact-row { padding: 25px 15px; min-height: 160px; }
+            .contact-details h3 { font-size: 1.2rem; }
+            .contact-details p { font-size: 1rem; }
         }
     </style>
 </head>
@@ -725,7 +637,7 @@
                     <li class="nav-item"><a href="#projects" class="nav-link">Projects</a></li>
                     <li class="nav-item"><a href="#github" class="nav-link">GitHub</a></li>
                     <li class="nav-item"><a href="#contact" class="nav-link">Contact</a></li>
-                    <li class="nav-item"><a href="https://drive.google.com/file/d/1YOUR_RESUME_ID/view?usp=sharing" target="_blank" class="nav-link btn" id="resume-btn">Resume</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link btn" id="resume-btn">Resume</a></li>
                 </ul>
                 <div class="hamburger">
                     <i class="fas fa-bars"></i>
@@ -744,13 +656,13 @@
                     <p>Proficient Fullstack Developer with comprehensive expertise in modern web technologies, including HTML, CSS, JavaScript, React, Node.js, and Express. Leverages robust problem-solving skills and clear communication to architect and deliver end-to-end, high-performance web solutions.</p>
                     <div class="hero-btns">
                         <a href="#contact" class="btn">Get In Touch</a>
-                        <a href="https://drive.google.com/file/d/1YOUR_RESUME_ID/view?usp=sharing" target="_blank" class="btn btn-outline" id="hero-resume-btn">Download Resume</a>
+                        <a href="#" class="btn btn-outline" id="hero-resume-btn">Download Resume</a>
                     </div>
                 </div>
                 <div class="hero-image">
-                    <!-- Fixed Profile Image -->
+                    <!-- Photo is one level up from index.html -->
                     <div class="profile-image-container">
-                      <img src="c:\Users\smrit\Pictures\smriti_photo.jpg" alt="Smriti Samanta" style="width: 200px; height: auto;">
+                        <img src="smriti_photo.jpg" alt="Smriti Samanta" class="profile-image">
                     </div>
                 </div>
             </div>
@@ -770,7 +682,6 @@
                     With a strong foundation in both front-end and back-end technologies, I create seamless digital experiences that combine aesthetic appeal with robust functionality. My approach focuses on writing clean, maintainable code and implementing efficient solutions that meet both user needs and business objectives.
                   </p>
                 </div>
-              
             </div>
         </div>
     </section>
@@ -800,12 +711,10 @@
                     <i class="fab fa-node-js skill-icon"></i>
                     <h3>Node.js</h3>
                 </div>
-               
                 <div class="skill-item">
                     <i class="fas fa-database skill-icon"></i>
                     <h3>MongoDB</h3>
                 </div>
-               
                 <div class="skill-item">
                     <i class="fab fa-git-alt skill-icon"></i>
                     <h3>Git</h3>
@@ -818,7 +727,6 @@
                     <i class="fas fa-code skill-icon"></i>
                     <h3>VS Code</h3>
                 </div>
-               
             </div>
         </div>
     </section>
@@ -830,48 +738,46 @@
             <div class="projects-grid">
                 <!-- Career Counseling Platform -->
                 <div class="project-card">
-                    <img src="https://images.unsplash.com/photo-1553877522-43269d4ea984?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Career Counseling Platform" class="project-img">
+                    <img src="https://images.unsplash.com/photo-1553877522-43269d4ea984?ixlib=rb-4.0.3&auto=format&fit=crop&w=1170&q=80" alt="Career Counseling Platform" class="project-img">
                     <div class="project-content">
                         <h3 class="project-title">Career Counseling Platform</h3>
-                        <p class="project-description">Engineered a full-stack platform featuring a sophisticated algorithm to intelligently match users with career counselors based on profile and goals. Developed interactive career assessment tools and an recommendation system to suggest personalized career paths and resources.</p>
+                        <p class="project-description">Engineered a full-stack platform featuring a sophisticated algorithm to intelligently match users with career counselors based on profile and goals.</p>
                         <div class="project-tech">
                             <span class="tech-tag">React</span>
                             <span class="tech-tag">Firebase</span>
                             <span class="tech-tag">Netlify</span>
-                          
                         </div>
                         <div class="project-btns">
                             <a href="https://github.com/smriti-67-samanta/career_councelling_platform_react/tree/main/career-councelling-platform" target="_blank" class="btn project-btn">GitHub</a>
-                            <a href="#" target="_blank" class="btn btn-outline project-btn">Live Demo</a>
+                            <a href="https://jade-lily-b7f61e.netlify.app/login" target="_blank" class="btn btn-outline project-btn">Live Demo</a>
                         </div>
                     </div>
                 </div>
-                
+
                 <!-- Virtual Classroom -->
                 <div class="project-card">
-                    <img src="https://images.unsplash.com/photo-1581276879432-15e50529f34b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Virtual Classroom" class="project-img">
+                    <img src="https://images.unsplash.com/photo-1581276879432-15e50529f34b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1170&q=80" alt="Virtual Classroom" class="project-img">
                     <div class="project-content">
                         <h3 class="project-title">Virtual Classroom</h3>
-                        <p class="project-description">Developed a responsive video conferencing interface with real-time controls for audio, video, and screen sharing. Engineered an interactive, multi-user whiteboard with drawing tools and real-time synchronization for collaborative learning. Implemented a real-time chat system with file sharing and user notifications.</p>
+                        <p class="project-description">Developed a responsive video conferencing interface with real-time controls and collaborative whiteboard.</p>
                         <div class="project-tech">
                             <span class="tech-tag">React</span>
                             <span class="tech-tag">Firebase</span>
                             <span class="tech-tag">Netlify</span>
-                            
                         </div>
                         <div class="project-btns">
                             <a href="https://github.com/smriti-67-samanta/buildweek_virtualClassroom" target="_blank" class="btn project-btn">GitHub</a>
-                            <a href="#" target="_blank" class="btn btn-outline project-btn">Live Demo</a>
+                            <a href="https://super-praline-2e0b9d.netlify.app/" target="_blank" class="btn btn-outline project-btn">Live Demo</a>
                         </div>
                     </div>
                 </div>
-                
+
                 <!-- Payout Automation System -->
                 <div class="project-card">
-                    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Payout Automation System" class="project-img">
+                    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=1170&q=80" alt="Payout Automation System" class="project-img">
                     <div class="project-content">
                         <h3 class="project-title">Payout Automation System for EdTech Mentors</h3>
-                        <p class="project-description">Developed the front-end interface for a centralized payout tracking system, enabling both admins and mentors to view payment statuses and details. Engineered a secure user authentication system to control access and protect sensitive financial data. Built responsive and intuitive UI components for dashboards.</p>
+                        <p class="project-description">Developed front-end for a centralized payout tracking system with secure authentication and responsive dashboards.</p>
                         <div class="project-tech">
                             <span class="tech-tag">React</span>
                             <span class="tech-tag">Firebase</span>
@@ -880,7 +786,7 @@
                         </div>
                         <div class="project-btns">
                             <a href="https://github.com/smriti-67-samanta/hackathon_Project" target="_blank" class="btn project-btn">GitHub</a>
-                            <a href="#" target="_blank" class="btn btn-outline project-btn">Live Demo</a>
+                            <a href="https://polite-axolotl-03b559.netlify.app/" target="_blank" class="btn btn-outline project-btn">Live Demo</a>
                         </div>
                     </div>
                 </div>
@@ -897,38 +803,61 @@
                     <div class="stat-number">16</div>
                     <div class="stat-label">Repositories</div>
                 </div>
-             
+                <div class="stat-box">
+                    <div class="stat-number">50.40%</div>
+                    <div class="stat-label">JavaScript</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-number">42.77%</div>
+                    <div class="stat-label">HTML</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-number">5.67%</div>
+                    <div class="stat-label">CSS</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-number">1.16%</div>
+                    <div class="stat-label">TypeScript</div>
+                </div>
             </div>
 
-            <!-- Language Statistics -->
             <div class="language-stats">
                 <h3>Most Used Languages</h3>
                 <div class="language-bars">
                     <div class="language-bar">
                         <div class="language-info">
                             <span class="language-name">JavaScript</span>
-                            <span class="language-percentage">62.19%</span>
+                            <span class="language-percentage">50.40%</span>
                         </div>
                         <div class="language-progress">
-                            <div class="language-progress-fill" style="width: 62.19%"></div>
+                            <div class="language-progress-fill" style="width: 50.40%"></div>
                         </div>
                     </div>
                     <div class="language-bar">
                         <div class="language-info">
                             <span class="language-name">HTML</span>
-                            <span class="language-percentage">19.32%</span>
+                            <span class="language-percentage">42.77%</span>
                         </div>
                         <div class="language-progress">
-                            <div class="language-progress-fill" style="width: 19.32%"></div>
+                            <div class="language-progress-fill" style="width: 42.77%"></div>
                         </div>
                     </div>
                     <div class="language-bar">
                         <div class="language-info">
                             <span class="language-name">CSS</span>
-                            <span class="language-percentage">18.49%</span>
+                            <span class="language-percentage">5.67%</span>
                         </div>
                         <div class="language-progress">
-                            <div class="language-progress-fill" style="width: 18.49%"></div>
+                            <div class="language-progress-fill" style="width: 5.67%"></div>
+                        </div>
+                    </div>
+                    <div class="language-bar">
+                        <div class="language-info">
+                            <span class="language-name">TypeScript</span>
+                            <span class="language-percentage">1.16%</span>
+                        </div>
+                        <div class="language-progress">
+                            <div class="language-progress-fill" style="width: 1.16%"></div>
                         </div>
                     </div>
                 </div>
@@ -942,33 +871,20 @@
             <h2>Contact Me</h2>
             <div class="contact-content">
                 <div class="contact-info">
-                    <!-- Email Row -->
                     <div class="contact-row">
                         <i class="fas fa-envelope contact-icon"></i>
                         <div class="contact-details">
                             <h3>Email</h3>
-                            <p>
-                                <a href="mailto:samantasmriti0@gmail.com?subject=Portfolio%20Inquiry&body=Hello%20Smriti,%0A%0AI%20came%20across%20your%20portfolio%20and%20would%20like%20to%20get%20in%20touch%20with%20you." class="email-link">
-                                    samantasmriti0@gmail.com
-                                </a>
-                            </p>
+                            <p><a href="mailto:samantasmriti0@gmail.com?subject=Portfolio%20Inquiry" class="email-link">samantasmriti0@gmail.com</a></p>
                         </div>
                     </div>
-                    
-                    <!-- Phone Row -->
                     <div class="contact-row">
                         <i class="fas fa-phone contact-icon"></i>
                         <div class="contact-details">
                             <h3>Phone</h3>
-                            <p>
-                                <a href="tel:+917063074104" class="phone-link">
-                                    7063074104
-                                </a>
-                            </p>
+                            <p><a href="tel:+917063074104" class="phone-link">7063074104</a></p>
                         </div>
                     </div>
-                    
-                    <!-- Location Row -->
                     <div class="contact-row">
                         <i class="fas fa-map-marker-alt contact-icon"></i>
                         <div class="contact-details">
@@ -976,19 +892,13 @@
                             <p>Kolkata, West Bengal</p>
                         </div>
                     </div>
-                    
-                    <!-- Social Media Row -->
                     <div class="contact-row">
                         <i class="fas fa-share-alt contact-icon"></i>
                         <div class="contact-details">
                             <h3>Connect With Me</h3>
                             <div class="social-links">
-                                <a href="https://github.com/smriti-67-samanta" target="_blank" class="social-link">
-                                    <i class="fab fa-github"></i>
-                                </a>
-                                <a href="https://www.linkedin.com/in/smriti-samanta-816aa31a0/" target="_blank" class="social-link">
-                                    <i class="fab fa-linkedin-in"></i>
-                                </a>
+                                <a href="https://github.com/smriti-67-samanta" target="_blank" class="social-link"><i class="fab fa-github"></i></a>
+                                <a href="https://www.linkedin.com/in/smriti-samanta-816aa31a0/" target="_blank" class="social-link"><i class="fab fa-linkedin-in"></i></a>
                             </div>
                         </div>
                     </div>
@@ -1008,55 +918,35 @@
         // Mobile Navigation Toggle
         const hamburger = document.querySelector('.hamburger');
         const navMenu = document.querySelector('.nav-menu');
+        hamburger.addEventListener('click', () => navMenu.classList.toggle('active'));
+        document.querySelectorAll('.nav-link').forEach(n => n.addEventListener('click', () => navMenu.classList.remove('active')));
 
-        hamburger.addEventListener('click', () => {
-            navMenu.classList.toggle('active');
-        });
-
-        // Close mobile menu when clicking on a link
-        document.querySelectorAll('.nav-link').forEach(n => n.addEventListener('click', () => {
-            navMenu.classList.remove('active');
-        }));
-
-        // Resume Download Functionality with Google Drive Link
-        document.getElementById('resume-btn').addEventListener('click', function(e) {
+        // Resume Download (Update with your actual Google Drive link)
+        document.getElementById('resume-btn').addEventListener('click', e => {
             e.preventDefault();
-            // Replace with your actual Google Drive resume link
             window.open('https://drive.google.com/file/d/19nut0XCZysKYQHS1-CmG2k2QAi7Fjc1l/view?usp=sharing', '_blank');
         });
-
-        document.getElementById('hero-resume-btn').addEventListener('click', function(e) {
+        document.getElementById('hero-resume-btn').addEventListener('click', e => {
             e.preventDefault();
-            // Replace with your actual Google Drive resume link
             window.open('https://drive.google.com/file/d/19nut0XCZysKYQHS1-CmG2k2QAi7Fjc1l/view?usp=sharing', '_blank');
         });
 
         // Sticky Header
-        window.addEventListener('scroll', function() {
+        window.addEventListener('scroll', () => {
             const header = document.querySelector('header');
-            if (window.scrollY > 100) {
-                header.style.padding = '10px 0';
-                header.style.boxShadow = '0 4px 10px rgba(0, 0, 0, 0.1)';
-            } else {
-                header.style.padding = '20px 0';
-                header.style.boxShadow = '0 4px 6px rgba(0, 0, 0, 0.1)';
-            }
+            header.style.padding = window.scrollY > 100 ? '10px 0' : '20px 0';
+            header.style.boxShadow = window.scrollY > 100 ? '0 4px 10px rgba(0,0,0,0.1)' : '0 4px 6px rgba(0,0,0,0.1)';
         });
 
         // Animate progress bars on scroll
-        function animateProgressBars() {
-            const progressBars = document.querySelectorAll('.language-progress-fill');
-            progressBars.forEach(bar => {
-                const width = bar.style.width;
+        const animateProgressBars = () => {
+            document.querySelectorAll('.language-progress-fill').forEach(bar => {
+                const w = bar.style.width;
                 bar.style.width = '0%';
-                setTimeout(() => {
-                    bar.style.width = width;
-                }, 500);
+                setTimeout(() => bar.style.width = w, 500);
             });
-        }
-
-        // Animate progress bars when they come into view
-        const observer = new IntersectionObserver((entries) => {
+        };
+        const observer = new IntersectionObserver(entries => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     animateProgressBars();
@@ -1064,13 +954,11 @@
                 }
             });
         });
-
         observer.observe(document.querySelector('.language-stats'));
 
-        // Fix for image movement issues
-        window.addEventListener('load', function() {
-            const images = document.querySelectorAll('img');
-            images.forEach(img => {
+        // Ensure images load properly
+        window.addEventListener('load', () => {
+            document.querySelectorAll('img').forEach(img => {
                 img.style.display = 'block';
                 img.style.margin = '0 auto';
             });
