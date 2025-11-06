@@ -319,145 +319,143 @@
             color: var(--secondary-color);
         }
 
-        /* Projects Section */
+        /* Enhanced Projects Section - Clean Horizontal Layout */
         .projects {
             background-color: var(--light-color);
         }
 
-        .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-            gap: 30px;
+        .projects-container {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            flex-wrap: wrap;
         }
 
         .project-card {
             background-color: var(--white);
-            border-radius: 10px;
+            border-radius: 15px;
             overflow: hidden;
-            box-shadow: var(--shadow);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
             transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            max-width: 380px;
+            flex: 1;
+            min-width: 300px;
         }
 
         .project-card:hover {
-            transform: translateY(-10px);
+            transform: translateY(-15px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
+        }
+
+        .project-img-container {
+            position: relative;
+            overflow: hidden;
+            height: 220px;
         }
 
         .project-img {
             width: 100%;
-            height: 200px;
+            height: 100%;
             object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .project-card:hover .project-img {
+            transform: scale(1.05);
+        }
+
+        .project-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, rgba(44, 62, 80, 0.2), rgba(52, 152, 219, 0.7));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: var(--transition);
+        }
+
+        .project-card:hover .project-overlay {
+            opacity: 1;
         }
 
         .project-content {
-            padding: 20px;
+            padding: 25px;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
         }
 
         .project-title {
             font-size: 1.5rem;
-            margin-bottom: 10px;
+            margin-bottom: 12px;
+            color: var(--primary-color);
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .project-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background-color: var(--secondary-color);
         }
 
         .project-description {
             color: var(--text-light);
-            margin-bottom: 15px;
+            margin-bottom: 20px;
+            flex-grow: 1;
+            line-height: 1.7;
         }
 
         .project-tech {
             display: flex;
             flex-wrap: wrap;
             gap: 10px;
-            margin-bottom: 20px;
+            margin-bottom: 25px;
         }
 
         .tech-tag {
             background-color: var(--light-color);
-            padding: 5px 10px;
+            padding: 6px 14px;
             border-radius: 20px;
-            font-size: 0.8rem;
+            font-size: 0.85rem;
             font-weight: 500;
+            color: var(--primary-color);
+            transition: var(--transition);
+        }
+
+        .tech-tag:hover {
+            background-color: var(--secondary-color);
+            color: var(--white);
         }
 
         .project-btns {
             display: flex;
-            gap: 10px;
+            gap: 12px;
+            margin-top: auto;
         }
 
         .project-btn {
             flex: 1;
-            padding: 10px;
+            padding: 12px;
             text-align: center;
             font-size: 0.9rem;
+            border-radius: 6px;
+            font-weight: 600;
         }
 
-        /* GitHub Stats Section */
-        .github-stats {
-            text-align: center;
-        }
-
-        .stats-container {
-            display: flex;
-            justify-content: center;
-            gap: 30px;
-            margin-top: 50px;
-            flex-wrap: wrap;
-        }
-
-        .stat-box {
-            background-color: var(--white);
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: var(--shadow);
-            min-width: 200px;
-        }
-
-        .stat-number {
-            font-size: 2.5rem;
-            font-weight: 700;
-            color: var(--secondary-color);
-        }
-
-        /* Language Stats Section */
-        .language-stats {
-            margin-top: 60px;
-        }
-
-        .language-bars {
-            background-color: var(--white);
-            border-radius: 10px;
-            padding: 30px;
-            box-shadow: var(--shadow);
-        }
-
-        .language-bar {
-            margin-bottom: 15px;
-        }
-
-        .language-info {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 5px;
-        }
-
-        .language-name {
-            font-weight: 500;
-        }
-
-        .language-percentage {
-            color: var(--text-light);
-        }
-
-        .language-progress {
-            height: 8px;
-            background-color: var(--light-color);
-            border-radius: 4px;
-            overflow: hidden;
-        }
-
-        .language-progress-fill {
-            height: 100%;
-            background-color: var(--secondary-color);
-            border-radius: 4px;
-            transition: width 1s ease-in-out;
+        .project-btn i {
+            margin-right: 8px;
         }
 
         /* Contact Section */
@@ -587,6 +585,9 @@
                 width: 250px;
                 height: 250px;
             }
+            .projects-container {
+                gap: 30px;
+            }
         }
 
         @media (max-width: 768px) {
@@ -608,19 +609,21 @@
             .hero h1 { font-size: 2.5rem; }
             .hero h2 { font-size: 1.5rem; }
             h2 { font-size: 2rem; }
-            .projects-grid { grid-template-columns: 1fr; }
             .contact-info { grid-template-columns: 1fr; gap: 20px; }
             .contact-row { padding: 30px 20px; min-height: 180px; }
             .contact-icon { font-size: 2rem; }
+            .project-card {
+                min-width: 280px;
+            }
         }
 
         @media (max-width: 576px) {
             .hero-btns { flex-direction: column; }
             .profile-image-container { width: 200px; height: 200px; }
-            .stats-container { flex-direction: column; align-items: center; }
             .contact-row { padding: 25px 15px; min-height: 160px; }
             .contact-details h3 { font-size: 1.2rem; }
             .contact-details p { font-size: 1rem; }
+            .project-btns { flex-direction: column; }
         }
     </style>
 </head>
@@ -635,7 +638,6 @@
                     <li class="nav-item"><a href="#about" class="nav-link">About</a></li>
                     <li class="nav-item"><a href="#skills" class="nav-link">Skills</a></li>
                     <li class="nav-item"><a href="#projects" class="nav-link">Projects</a></li>
-                    <li class="nav-item"><a href="#github" class="nav-link">GitHub</a></li>
                     <li class="nav-item"><a href="#contact" class="nav-link">Contact</a></li>
                     <li class="nav-item"><a href="#" class="nav-link btn" id="resume-btn">Resume</a></li>
                 </ul>
@@ -731,14 +733,17 @@
         </div>
     </section>
 
-    <!-- Projects Section -->
+    <!-- Enhanced Projects Section - Clean Horizontal Layout -->
     <section id="projects" class="projects">
         <div class="container">
             <h2>My Projects</h2>
-            <div class="projects-grid">
+            <div class="projects-container">
                 <!-- Career Counseling Platform -->
                 <div class="project-card">
-                    <img src="https://images.unsplash.com/photo-1553877522-43269d4ea984?ixlib=rb-4.0.3&auto=format&fit=crop&w=1170&q=80" alt="Career Counseling Platform" class="project-img">
+                    <div class="project-img-container">
+                        <img src="https://images.unsplash.com/photo-1553877522-43269d4ea984?ixlib=rb-4.0.3&auto=format&fit=crop&w=1170&q=80" alt="Career Counseling Platform" class="project-img">
+                        <div class="project-overlay"></div>
+                    </div>
                     <div class="project-content">
                         <h3 class="project-title">Career Counseling Platform</h3>
                         <p class="project-description">Engineered a full-stack platform featuring a sophisticated algorithm to intelligently match users with career counselors based on profile and goals.</p>
@@ -748,15 +753,18 @@
                             <span class="tech-tag">Netlify</span>
                         </div>
                         <div class="project-btns">
-                            <a href="https://github.com/smriti-67-samanta/career_councelling_platform_react/tree/main/career-councelling-platform" target="_blank" class="btn project-btn">GitHub</a>
-                            <a href="https://jade-lily-b7f61e.netlify.app/login" target="_blank" class="btn btn-outline project-btn">Live Demo</a>
+                            <a href="https://github.com/smriti-67-samanta/career_councelling_platform_react/tree/main/career-councelling-platform" target="_blank" class="btn project-btn"><i class="fab fa-github"></i> GitHub</a>
+                            <a href="https://jade-lily-b7f61e.netlify.app/login" target="_blank" class="btn btn-outline project-btn"><i class="fas fa-external-link-alt"></i> Live Demo</a>
                         </div>
                     </div>
                 </div>
 
                 <!-- Virtual Classroom -->
                 <div class="project-card">
-                    <img src="https://images.unsplash.com/photo-1581276879432-15e50529f34b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1170&q=80" alt="Virtual Classroom" class="project-img">
+                    <div class="project-img-container">
+                        <img src="https://images.unsplash.com/photo-1581276879432-15e50529f34b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1170&q=80" alt="Virtual Classroom" class="project-img">
+                        <div class="project-overlay"></div>
+                    </div>
                     <div class="project-content">
                         <h3 class="project-title">Virtual Classroom</h3>
                         <p class="project-description">Developed a responsive video conferencing interface with real-time controls and collaborative whiteboard.</p>
@@ -766,15 +774,18 @@
                             <span class="tech-tag">Netlify</span>
                         </div>
                         <div class="project-btns">
-                            <a href="https://github.com/smriti-67-samanta/buildweek_virtualClassroom" target="_blank" class="btn project-btn">GitHub</a>
-                            <a href="https://super-praline-2e0b9d.netlify.app/" target="_blank" class="btn btn-outline project-btn">Live Demo</a>
+                            <a href="https://github.com/smriti-67-samanta/buildweek_virtualClassroom" target="_blank" class="btn project-btn"><i class="fab fa-github"></i> GitHub</a>
+                            <a href="https://super-praline-2e0b9d.netlify.app/" target="_blank" class="btn btn-outline project-btn"><i class="fas fa-external-link-alt"></i> Live Demo</a>
                         </div>
                     </div>
                 </div>
 
                 <!-- Payout Automation System -->
                 <div class="project-card">
-                    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=1170&q=80" alt="Payout Automation System" class="project-img">
+                    <div class="project-img-container">
+                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=1170&q=80" alt="Payout Automation System" class="project-img">
+                        <div class="project-overlay"></div>
+                    </div>
                     <div class="project-content">
                         <h3 class="project-title">Payout Automation System for EdTech Mentors</h3>
                         <p class="project-description">Developed front-end for a centralized payout tracking system with secure authentication and responsive dashboards.</p>
@@ -785,79 +796,8 @@
                             <span class="tech-tag">Team Collaboration</span>
                         </div>
                         <div class="project-btns">
-                            <a href="https://github.com/smriti-67-samanta/hackathon_Project" target="_blank" class="btn project-btn">GitHub</a>
-                            <a href="https://polite-axolotl-03b559.netlify.app/" target="_blank" class="btn btn-outline project-btn">Live Demo</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- GitHub Stats Section -->
-    <section id="github" class="github-stats">
-        <div class="container">
-            <h2>GitHub Statistics</h2>
-            <div class="stats-container">
-                <div class="stat-box">
-                    <div class="stat-number">16</div>
-                    <div class="stat-label">Repositories</div>
-                </div>
-                <div class="stat-box">
-                    <div class="stat-number">50.40%</div>
-                    <div class="stat-label">JavaScript</div>
-                </div>
-                <div class="stat-box">
-                    <div class="stat-number">42.77%</div>
-                    <div class="stat-label">HTML</div>
-                </div>
-                <div class="stat-box">
-                    <div class="stat-number">5.67%</div>
-                    <div class="stat-label">CSS</div>
-                </div>
-                <div class="stat-box">
-                    <div class="stat-number">1.16%</div>
-                    <div class="stat-label">TypeScript</div>
-                </div>
-            </div>
-
-            <div class="language-stats">
-                <h3>Most Used Languages</h3>
-                <div class="language-bars">
-                    <div class="language-bar">
-                        <div class="language-info">
-                            <span class="language-name">JavaScript</span>
-                            <span class="language-percentage">50.40%</span>
-                        </div>
-                        <div class="language-progress">
-                            <div class="language-progress-fill" style="width: 50.40%"></div>
-                        </div>
-                    </div>
-                    <div class="language-bar">
-                        <div class="language-info">
-                            <span class="language-name">HTML</span>
-                            <span class="language-percentage">42.77%</span>
-                        </div>
-                        <div class="language-progress">
-                            <div class="language-progress-fill" style="width: 42.77%"></div>
-                        </div>
-                    </div>
-                    <div class="language-bar">
-                        <div class="language-info">
-                            <span class="language-name">CSS</span>
-                            <span class="language-percentage">5.67%</span>
-                        </div>
-                        <div class="language-progress">
-                            <div class="language-progress-fill" style="width: 5.67%"></div>
-                        </div>
-                    </div>
-                    <div class="language-bar">
-                        <div class="language-info">
-                            <span class="language-name">TypeScript</span>
-                            <span class="language-percentage">1.16%</span>
-                        </div>
-                        <div class="language-progress">
-                            <div class="language-progress-fill" style="width: 1.16%"></div>
+                            <a href="https://github.com/smriti-67-samanta/hackathon_Project" target="_blank" class="btn project-btn"><i class="fab fa-github"></i> GitHub</a>
+                            <a href="https://polite-axolotl-03b559.netlify.app/" target="_blank" class="btn btn-outline project-btn"><i class="fas fa-external-link-alt"></i> Live Demo</a>
                         </div>
                     </div>
                 </div>
@@ -937,24 +877,6 @@
             header.style.padding = window.scrollY > 100 ? '10px 0' : '20px 0';
             header.style.boxShadow = window.scrollY > 100 ? '0 4px 10px rgba(0,0,0,0.1)' : '0 4px 6px rgba(0,0,0,0.1)';
         });
-
-        // Animate progress bars on scroll
-        const animateProgressBars = () => {
-            document.querySelectorAll('.language-progress-fill').forEach(bar => {
-                const w = bar.style.width;
-                bar.style.width = '0%';
-                setTimeout(() => bar.style.width = w, 500);
-            });
-        };
-        const observer = new IntersectionObserver(entries => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    animateProgressBars();
-                    observer.unobserve(entry.target);
-                }
-            });
-        });
-        observer.observe(document.querySelector('.language-stats'));
 
         // Ensure images load properly
         window.addEventListener('load', () => {
