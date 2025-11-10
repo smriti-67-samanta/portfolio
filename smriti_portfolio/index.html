@@ -861,14 +861,37 @@
         hamburger.addEventListener('click', () => navMenu.classList.toggle('active'));
         document.querySelectorAll('.nav-link').forEach(n => n.addEventListener('click', () => navMenu.classList.remove('active')));
 
-        // Resume Download (Update with your actual Google Drive link)
+        // Resume Download and View Functionality
+        function handleResume() {
+            // Open the resume in a new tab
+            window.open('https://drive.google.com/file/d/19nut0XCZysKYQHS1-CmG2k2QAi7Fjc1l/view?usp=sharing', '_blank');
+            
+            // Create a temporary anchor element for download
+            const link = document.createElement('a');
+            
+            // Use the direct download link from Google Drive
+            const fileId = '19nut0XCZysKYQHS1-CmG2k2QAi7Fjc1l';
+            const downloadUrl = `https://drive.google.com/uc?export=download&id=${fileId}`;
+            
+            // Set the href and download attributes
+            link.href = downloadUrl;
+            link.download = 'Smriti_Samanta_Resume.pdf'; // Set the filename for download
+            
+            // Append to the body, click, and remove
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        }
+
+        // Add event listeners to both resume buttons
         document.getElementById('resume-btn').addEventListener('click', e => {
             e.preventDefault();
-            window.open('https://drive.google.com/file/d/19nut0XCZysKYQHS1-CmG2k2QAi7Fjc1l/view?usp=sharing', '_blank');
+            handleResume();
         });
+        
         document.getElementById('hero-resume-btn').addEventListener('click', e => {
             e.preventDefault();
-            window.open('https://drive.google.com/file/d/19nut0XCZysKYQHS1-CmG2k2QAi7Fjc1l/view?usp=sharing', '_blank');
+            handleResume();
         });
 
         // Sticky Header
